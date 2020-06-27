@@ -7,11 +7,11 @@ import android.database.sqlite.SQLiteOpenHelper
 class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION)
 {
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL(GloboMedDBContract.SQL_CREATE_ENTRIES)
+        db?.execSQL(GloboMedDBContract.EmployeeEntry.SQL_CREATE_ENTRIES)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL(GloboMedDBContract.SQL_DROP_TABLE)
+        db?.execSQL(GloboMedDBContract.EmployeeEntry.SQL_DROP_TABLE)
         onCreate(db)
     }
 
