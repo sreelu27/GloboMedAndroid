@@ -11,20 +11,21 @@ class DatabaseHelper(context: Context?) : SQLiteOpenHelper(context, DATABASE_NAM
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL(GloboMedDBContract.EmployeeEntry.SQL_DROP_TABLE)
-        onCreate(db)
+        //db?.execSQL(GloboMedDBContract.EmployeeEntry.SQL_DROP_TABLE)
+        //onCreate(db)
+        db?.execSQL(GloboMedDBContract.EmployeeEntry.ALTER_TABLE_1)
     }
 
-    override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+    /*override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         super.onDowngrade(db, oldVersion, newVersion)
     }
 
     override fun onOpen(db: SQLiteDatabase?) {
         super.onOpen(db)
-    }
+    }*/
 
     companion object {
         const val DATABASE_NAME = "globomed.db"
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 2
     }
 }

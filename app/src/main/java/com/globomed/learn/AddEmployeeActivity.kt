@@ -57,6 +57,7 @@ class AddEmployeeActivity : Activity() {
             val name = etEmpName.text.toString()
             val dob = myCalendar.timeInMillis
             val designation = etDesignation.text.toString()
+            val isSurgeon = if (sSurgeon.isChecked) 1 else 0
 
             val db = databaseHelper.writableDatabase
             val values = ContentValues()
@@ -64,6 +65,7 @@ class AddEmployeeActivity : Activity() {
             values.put(GloboMedDBContract.EmployeeEntry.COLUMN_NAME, name)
             values.put(GloboMedDBContract.EmployeeEntry.COLUMN_DOB, dob)
             values.put(GloboMedDBContract.EmployeeEntry.COLUMN_DESIGNATION, designation)
+            values.put(GloboMedDBContract.EmployeeEntry.COLUMN_SURGEON, isSurgeon)
 
             val result = db.insert(GloboMedDBContract.EmployeeEntry.TABLE_NAME, null, values)
             setResult(RESULT_OK, Intent())
